@@ -18,6 +18,8 @@
   "homepage": "https://github.com/rsgc-peterson-e/qhacks-2019-backend#readme",
   "dependencies": {
     "express": "^4.16.4",
-    "gerber-parser": "^1.1.1"
+    "fs": "0.0.1-security",
+    "gerber-parser": "^1.1.1",
+    "pcb-stackup": "^3.0.0"
   }
 }
