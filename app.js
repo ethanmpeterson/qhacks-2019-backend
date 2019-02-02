@@ -4,8 +4,9 @@ const port = process.env.PORT || 3000
 const fs = require('fs');
 const fileUpload = require('express-fileupload');
 let {PythonShell} = require('python-shell')
-
+var cors = require('cors')
 app.use(fileUpload());
+app.use(cors());
 
 app.post('/test', function(req, res) {
     if (Object.keys(req.files).length == 0) {
