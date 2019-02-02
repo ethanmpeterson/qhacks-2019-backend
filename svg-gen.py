@@ -1,8 +1,10 @@
 import os
 import gerber
+import sys
 from gerber.render import GerberCairoContext
 
-copper = gerber.read('input.GTL')
+
+copper = gerber.read('input.GTL') # argument string is the filename
 
 # Rendering context
 ctx = GerberCairoContext()
