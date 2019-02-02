@@ -29,7 +29,20 @@ app.post('/upload', function(req, res) {
 });
 
 app.post('/compute', function (req, res) {
-    
+    console.log(req)
+    var options = {
+        args:
+		[
+            req.query.min_dist,
+            req.query.min_width,
+            req.query.voltage,
+            req.query.current
+        ]
+    }
+    PythonShell.run('compute.py', options, function (err, data) {
+		if (err) res.send(err);
+        res.send(JSON.parse(data))
+    });
 });
 app.get('/', (req, res) => res.send("Welcome to CircuitSafe"));
 app.listen(port, () => console.log(`Example app listening on port ${port}!`))

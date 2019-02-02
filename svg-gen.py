@@ -12,7 +12,7 @@ ctx = GerberCairoContext()
 # Create PNG
 copper.render(ctx)
 ctx.dump(os.path.join(os.path.dirname(__file__), 'output.png'))
-print("Saved")
+#print("Saved")
 exit()
 
 
