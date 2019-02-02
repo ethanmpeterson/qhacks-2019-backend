@@ -17,9 +17,15 @@
   },
   "homepage": "https://github.com/rsgc-peterson-e/qhacks-2019-backend#readme",
   "dependencies": {
+    "@tracespace/xml-id": "^4.0.0-next.15",
+    "convert-svg-to-png": "^0.5.0",
     "express": "^4.16.4",
     "fs": "0.0.1-security",
     "gerber-parser": "^1.1.1",
-    "pcb-stackup": "^3.0.0"
+    "pcb-stackup": "^3.0.0",
+    "pcb-stackup-core": "^3.0.0",
+    "run-parallel": "^1.1.9",
+    "run-waterfall": "^1.1.6",
+    "whats-that-gerber": "^3.0.0"
   }
 }
