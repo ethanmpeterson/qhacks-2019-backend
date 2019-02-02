@@ -25,12 +25,11 @@ app.post('/upload', function(req, res) {
 		if (err) res.send(err);
         res.download('./output.png');
     });
-    //res.send('File uploaded!');
   });
 });
 
 app.post('/compute', function (req, res) {
-
+    
 });
 app.get('/', (req, res) => res.send("Welcome to CircuitSafe"));
 app.listen(port, () => console.log(`Example app listening on port ${port}!`))
