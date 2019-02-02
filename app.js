@@ -7,6 +7,14 @@ let {PythonShell} = require('python-shell')
 
 app.use(fileUpload());
 
+app.post('/test', function(req, res) {
+    if (Object.keys(req.files).length == 0) {
+        return res.status(400).send('No files were uploaded.');
+      }
+    
+      res.send("File Received");
+});
+
 app.post('/upload', function(req, res) {
   if (Object.keys(req.files).length == 0) {
     return res.status(400).send('No files were uploaded.');
