@@ -7,7 +7,7 @@ let {PythonShell} = require('python-shell')
 var cors = require('cors')
 app.use(fileUpload());
 app.use(cors());
-
+app.use(express.static('./'))
 app.post('/test', function(req, res) {
     if (Object.keys(req.files).length == 0) {
         return res.status(400).send('No files were uploaded.');
@@ -31,11 +31,14 @@ app.post('/upload', function(req, res) {
     var options = {}
 	
 	PythonShell.run('svg-gen.py', options, function (err, data) {
-		if (err) res.send(err);
-        res.download('./output.png');
+        if (err) res.send(err);
+        //res.set('Content-Type', 'image/png');
+        //res.download('./output.png');
+        res.send("Processing complete");
     });
   });
 });
+
 
 app.post('/compute', function (req, res) {
     console.log(req)
