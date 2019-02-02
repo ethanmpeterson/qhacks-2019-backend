@@ -1,13 +1,20 @@
 const express = require('express')
 const app = express()
+
+var bodyParser = require('body-parser');
+app.use(bodyParser.json()); // for parsing application/json
+app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
+
 const port = process.env.PORT || 3000
 const fs = require('fs');
 const fileUpload = require('express-fileupload');
 let {PythonShell} = require('python-shell')
 var cors = require('cors')
 app.use(fileUpload());
-app.use(cors());
+
+
 app.use(express.static('./'))
+app.use(cors());
 app.post('/test', function(req, res) {
     if (Object.keys(req.files).length == 0) {
         return res.status(400).send('No files were uploaded.');
@@ -41,14 +48,14 @@ app.post('/upload', function(req, res) {
 
 
 app.post('/compute', function (req, res) {
-    console.log(req)
+    
     var options = {
         args:
 		[
-            req.query.min_dist,
-            req.query.min_width,
-            req.query.voltage,
-            req.query.current
+            req.body.min_dist,
+            req.body.min_width,
+            req.body.voltage,
+            req.body.current
         ]
     }
     PythonShell.run('compute.py', options, function (err, data) {
