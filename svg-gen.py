@@ -2,7 +2,7 @@ import os
 import gerber
 from gerber.render import GerberCairoContext
 
-copper = gerber.read('shem.GTL')
+copper = gerber.read('input.GTL')
 
 # Rendering context
 ctx = GerberCairoContext()
