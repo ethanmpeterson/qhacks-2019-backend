@@ -19,8 +19,13 @@ app.post('/upload', function(req, res) {
   file.mv('./input.GTL', function(err) {
     if (err)
       return res.status(500).send(err);
-
-    res.send('File uploaded!');
+    var options = {}
+	
+	PythonShell.run('svg-gen.py', options, function (err, data) {
+		if (err) res.send(err);
+        res.download('./output.png');
+    });
+    //res.send('File uploaded!');
   });
 });
 
